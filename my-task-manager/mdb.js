@@ -1,8 +1,10 @@
 /* eslint-disable no-plusplus */
 const sqlite3 = require('sqlite3').verbose();
+const os = require('os');
 
 module.exports.createDBAndTables = function () {
-  const database = new sqlite3.Database('/Users/achava/mytaskmanager.db');
+  // eslint-disable-next-line prefer-template
+  const database = new sqlite3.Database(`${os.homedir()}/mytaskmanager.db`);
   return new Promise((resolve, reject) => {
     database.run(
       'CREATE TABLE if not exists mytasks (id INTEGER PRIMARY KEY,randomId TEXT,taskinfo TEXT,taskdescription TEXT,taskgroup TEXT,taskpriority TEXT,tasktags TEXT,status TEXT,createdon DATETIME DEFAULT CURRENT_TIMESTAMP,updatedon DATETIME DEFAULT CURRENT_TIMESTAMP)',
@@ -20,7 +22,7 @@ module.exports.createDBAndTables = function () {
 };
 
 module.exports.insertTask = function (taskInfo) {
-  const database = new sqlite3.Database('/Users/achava/mytaskmanager.db');
+  const database = new sqlite3.Database(`${os.homedir()}/mytaskmanager.db`);
   return new Promise((resolve, reject) => {
     database.run(
       'INSERT INTO mytasks(randomId,taskinfo,taskdescription,taskgroup,taskpriority,tasktags,status) VALUES(?,?,?,?,?,?,?)',
@@ -38,7 +40,7 @@ module.exports.insertTask = function (taskInfo) {
   });
 };
 module.exports.updateTask = function (taskInfo) {
-  const database = new sqlite3.Database('/Users/achava/mytaskmanager.db');
+  const database = new sqlite3.Database(`${os.homedir()}/mytaskmanager.db`);
   return new Promise((resolve, reject) => {
     database.run(
       'update mytasks set taskinfo=?,taskdescription=?,taskgroup=?,taskpriority=?,tasktags=?,status=?,createdon=?,updatedon=CURRENT_TIMESTAMP where randomid=?',
@@ -56,7 +58,7 @@ module.exports.updateTask = function (taskInfo) {
   });
 };
 module.exports.searchTasks = function (searchStr) {
-  const db = new sqlite3.Database('/Users/achava/mytaskmanager.db');
+  const db = new sqlite3.Database(`${os.homedir()}/mytaskmanager.db`);
   return new Promise((resolve, reject) => {
     const cols = ['taskinfo', 'taskdescription', 'taskgroup', 'tasktags'];
     let queryStr = '';
@@ -82,7 +84,7 @@ module.exports.searchTasks = function (searchStr) {
   });
 };
 module.exports.getTasks = function () {
-  const db = new sqlite3.Database('/Users/achava/mytaskmanager.db');
+  const db = new sqlite3.Database(`${os.homedir()}/mytaskmanager.db`);
 
   return new Promise((resolve, reject) => {
     let query;
@@ -103,7 +105,7 @@ module.exports.getTasks = function () {
   });
 };
 module.exports.getTaskDetails = function (taskId) {
-  const db = new sqlite3.Database('/Users/achava/mytaskmanager.db');
+  const db = new sqlite3.Database(`${os.homedir()}/mytaskmanager.db`);
   return new Promise((resolve, reject) => {
     db.all(
       'SELECT * FROM mytasks where randomId=? order by updatedon desc',
@@ -120,7 +122,7 @@ module.exports.getTaskDetails = function (taskId) {
   });
 };
 module.exports.deleteTask = function (taskUpdateInfo) {
-  const database = new sqlite3.Database('/Users/achava/mytaskmanager.db');
+  const database = new sqlite3.Database(`${os.homedir()}/mytaskmanager.db`);
 
   return new Promise((resolve, reject) => {
     database.run(

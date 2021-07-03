@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Update Task</title>
+    <link rel="stylesheet" href="../node_modules/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="columns">
+        <div class="column col-10">
+        
+
+          
+            <div class="form-group">
+              <center><button id="updateTaskbtntop" type="button" class="btn btn-primary">
+                Update
+              </button></center>
+              <br/>
+              <input class="form-input" id="update-task-id" type="hidden" name="update-task-id">
+              <input class="form-input" id="update-task-createdon" type="hidden" name="update-task-createdon">
+              <div class="input-group">
+              <label class="form-label" for="update-task-info">Task</label>
+              <input class="form-input" id="update-task-info" type="text" name="update-task-info" placeholder="I have to..."><br/>
+              </div><br/>
+              <div class="input-group">
+                <label class="form-label" for="update-task-group">Group</label>
+                <input class="form-input" id="update-task-group" type="text" name="update-task-group" placeholder="I have to...">
+                <label class="form-label" for="update-task-priority">Priority</label>
+                
+  
+                <select class="form-select" id="update-task-priority">
+                    
+                  <option value="High">High</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Low">Low</option>
+                </select>
+                <label class="form-label" for="update-task-status">Status</label>
+                  
+                  
+                    <select class="form-select" id="update-task-status">
+                      
+                      <option value="Todo">Todo</option>
+                      <option value="InProgress">In Progress</option>
+                      <option value="Done">Done</option>
+                      <option value="Hold">Hold</option>
+                      
+                    </select>
+                <label class="form-label" for="update-task-tags">Tags</label>
+                <input class="form-input" id="update-task-tags" type="text" name="update-task-tags" placeholder="I have to...">
+                <br/></div>
+              <label class="form-label" for="update-task-description">Task Description</label>
+             <!-- <textarea class="form-input" id="update-task-description" name="update-task-description" placeholder="I have to..."rows=10 cols=20></textarea>-->
+              <link href="quill.css" rel="stylesheet">
+
+
+<div id="toolbar">
+  <div id="toolbar-container">
+    <span class="ql-formats">
+      <select class="ql-font"></select>
+      <select class="ql-size"></select>
+    </span>
+    <span class="ql-formats">
+      <button class="ql-bold"></button>
+      <button class="ql-italic"></button>
+      <button class="ql-underline"></button>
+      <button class="ql-strike"></button>
+    </span>
+    <span class="ql-formats">
+      <select class="ql-color"></select>
+      <select class="ql-background"></select>
+    </span>
+    <span class="ql-formats">
+      <button class="ql-script" value="sub"></button>
+      <button class="ql-script" value="super"></button>
+    </span>
+    <span class="ql-formats">
+      <button class="ql-header" value="1"></button>
+      <button class="ql-header" value="2"></button>
+      <button class="ql-blockquote"></button>
+      <button class="ql-code-block"></button>
+    </span>
+    <span class="ql-formats">
+      <button class="ql-list" value="ordered"></button>
+      <button class="ql-list" value="bullet"></button>
+      <button class="ql-indent" value="-1"></button>
+      <button class="ql-indent" value="+1"></button>
+    </span>
+    <span class="ql-formats">
+      <button class="ql-direction" value="rtl"></button>
+      <select class="ql-align"></select>
+    </span>
+    <span class="ql-formats">
+      <button class="ql-link"></button>
+      <button class="ql-image"></button>
+      <button class="ql-video"></button>
+      <button class="ql-formula"></button>
+    </span>
+    <span class="ql-formats">
+      <button class="ql-clean"></button>
+    </span>
+  </div>
+</div>
+
+
+<div class="form-input" id="update-task-description" name="update-task-description" style="height:300px">
+  
+</div>
+
+
+<script src="quill.js"></script>
+
+
+<script>
+  var editor = new Quill('#update-task-description', {
+    modules: { toolbar: '#toolbar' },
+    theme: 'snow'
+  });
+</script>
+              <center>
+              <button id="updateTaskbtnbtm" type="button" class="btn btn-primary">
+                Update
+              </button></center>
+            </div>
+
+           
+          
+
+        </div>
+      </div>
+    </div>
+
+    <script src="./update.js"></script>
+  </body>
+
+</html>

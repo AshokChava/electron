@@ -1,0 +1,31 @@
+body {
+  font: caption;
+}
+
+.task-item {
+  background: none;
+  padding: 0.5rem;
+  margin: 0;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.task-item:nth-child(even) {
+  background: #f4f4ff;
+}
+
+.task-item:hover {
+  background: #d8d8d8
+}
+th{
+  background-color: #ffb700;;
+  color: white
+}
+a.test {
+  font-size:0;
+}
+
+a.text:after {
+  content: 'Link';
+  font-size:16px;         /* original font size */
+}
